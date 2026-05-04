@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Force Support Services | Seismic MEP Engineering — Bay Area</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a0e1a;
+    --navy-mid: #111827;
+    --navy-light: #1c2537;
+    --steel: #2a3549;
+    --amber: #d4820a;
+    --amber-bright: #f09f2a;
+    --amber-pale: #fae7c3;
+    --white: #f5f3ef;
+    --white-dim: rgba(245,243,239,0.65);
+    --white-faint: rgba(245,243,239,0.1);
+    --border: rgba(245,243,239,0.08);
+    --border-accent: rgba(212,130,10,0.35);
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem;
+    background: rgba(10,14,26,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-mark {
+    width: 34px; height: 34px;
+    background: var(--amber);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    color: var(--white-dim);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--amber-bright); }
+  .nav-cta {
+    background: var(--amber);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 3px;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--amber-bright) !important; color: var(--navy) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 3rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 30%, rgba(212,130,10,0.06) 0%, transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, #070b15 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,243,239,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,243,239,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 100%);
+  }
+  .hero-seismic {
+    position: absolute; top: 38%; left: 0; right: 0;
+    height: 120px;
+    opacity: 0.18;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amber-bright);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 10px;
+    position: relative;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 40px; height: 1px;
+    background: var(--amber);
+  }
+  h1.hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 8vw, 7.5rem);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    color: var(--white);
+    position: relative;
+    max-width: 900px;
+    margin-bottom: 1.8rem;
+  }
+  h1.hero-headline .accent { color: var(--amber); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--white-dim);
+    max-width: 560px;
+    position: relative;
+    margin-bottom: 2.4rem;
+    line-height: 1.75;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; align-items: center;
+    position: relative;
+  }
+  .btn-primary {
+    background: var(--amber);
+    color: var(--navy);
+    padding: 0.85rem 2.2rem;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--amber-bright); transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--white-dim);
+    padding: 0.85rem 2.2rem;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 0.88rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 0.5px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--amber); color: var(--white); }
+  .hero-stats {
+    position: absolute; right: 3rem; bottom: 6rem;
+    display: flex; flex-direction: column; gap: 2rem;
+    text-align: right;
+  }
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--amber);
+    letter-spacing: 1px;
+  }
+  .hero-stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-top: 2px;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-strip {
+    background: var(--amber);
+    padding: 0.65rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 28s linear infinite;
+  }
+  .marquee-inner span {
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    letter-spacing: 4px;
+    color: var(--navy);
+    margin: 0 2.5rem;
+  }
+  .marquee-dot { display: inline-block; width: 5px; height: 5px; background: var(--navy); border-radius: 50%; margin-bottom: 2px; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 3rem; }
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amber-bright);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block; width: 28px; height: 1px; background: var(--amber);
+  }
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    line-height: 1;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.2rem;
+  }
+  h2.section-title .accent { color: var(--amber); }
+  .section-lead {
+    font-size: 1rem;
+    color: var(--white-dim);
+    max-width: 560px;
+    margin-bottom: 3.5rem;
+    line-height: 1.8;
+  }
+
+  /* ── CONSTRUCTABILITY ── */
+  .constructability { background: var(--navy-mid); position: relative; overflow: hidden; }
+  .constructability-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .construct-visual {
+    position: relative;
+    height: 420px;
+    background: var(--steel);
+    border-radius: 4px;
+    border: 0.5px solid var(--border-accent);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .construct-visual-inner {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--amber);
+    text-align: center;
+  }
+  .construct-diagram {
+    width: 100%; height: 100%;
+    position: absolute; inset: 0;
+  }
+  .field-pillars {
+    display: flex; flex-direction: column; gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .field-pillar {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.2rem 1.4rem;
+    background: var(--navy-light);
+    border: 0.5px solid var(--border);
+    border-left: 3px solid var(--amber);
+    border-radius: 2px;
+    transition: border-color 0.2s;
+  }
+  .field-pillar:hover { border-left-color: var(--amber-bright); }
+  .pillar-icon {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    color: var(--amber);
+    background: rgba(212,130,10,0.12);
+    padding: 0.3rem 0.5rem;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    min-width: 48px;
+    text-align: center;
+  }
+  .pillar-text h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.3px;
+  }
+  .pillar-text p {
+    font-size: 0.82rem;
+    color: var(--white-dim);
+    line-height: 1.6;
+  }
+
+  /* ── CAPABILITIES ── */
+  .capabilities { background: var(--navy); }
+  .capabilities-inner { max-width: 1200px; margin: 0 auto; }
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .cap-card {
+    background: var(--navy-mid);
+    border: 0.5px solid var(--border);
+    border-top: 2px solid var(--amber);
+    border-radius: 2px;
+    padding: 1.8rem 1.6rem;
+    transition: transform 0.2s, border-top-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cap-card::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle at top right, rgba(212,130,10,0.06), transparent 70%);
+  }
+  .cap-card:hover { transform: translateY(-3px); border-top-color: var(--amber-bright); }
+  .cap-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--amber);
+    margin-bottom: 1rem;
+  }
+  .cap-icon-box {
+    width: 42px; height: 42px;
+    border: 0.5px solid var(--border-accent);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.1rem;
+    background: rgba(212,130,10,0.06);
+  }
+  .cap-icon-box svg { width: 20px; height: 20px; stroke: var(--amber); fill: none; stroke-width: 1.5; }
+  .cap-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.2px;
+  }
+  .cap-card p {
+    font-size: 0.82rem;
+    color: var(--white-dim);
+    line-height: 1.65;
+  }
+  .cap-card-wide {
+    grid-column: span 2;
+    background: var(--navy-light);
+    border-top-color: var(--amber-bright);
+    display: flex; gap: 2rem; align-items: center;
+  }
+  .cap-wide-badge {
+    flex-shrink: 0;
+    width: 64px; height: 64px;
+    background: var(--amber);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--navy);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* ── PROJECTS ── */
+  .projects { background: var(--navy-mid); }
+  .projects-inner { max-width: 1200px; margin: 0 auto; }
+  .projects-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+  .sector-tags {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .sector-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    color: var(--white-dim);
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1.25rem;
+  }
+  .project-card {
+    background: var(--navy-light);
+    border: 0.5px solid var(--border);
+    border-radius: 3px;
+    padding: 2rem 2rem 1.6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+  }
+  .project-tag {
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    letter-spacing: 2px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .project-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.7rem;
+  }
+  .project-card p {
+    font-size: 0.83rem;
+    color: var(--white-dim);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+  .project-scope {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .scope-chip {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
+    background: rgba(245,243,239,0.05);
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    color: var(--white-dim);
+    letter-spacing: 0.5px;
+  }
+  .project-stack {
+    display: flex; flex-direction: column; gap: 1.25rem;
+  }
+  .project-mini {
+    background: var(--steel);
+    border: 0.5px solid var(--border);
+    border-radius: 3px;
+    padding: 1.4rem 1.5rem;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-mini::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+  }
+
+  /* ── BADGER ── */
+  .badger-section {
+    background: var(--navy);
+    border-top: 0.5px solid var(--border-accent);
+    border-bottom: 0.5px solid var(--border-accent);
+  }
+  .badger-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  .badger-badge {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .badger-hex {
+    width: 54px; height: 54px;
+    background: var(--amber);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    color: var(--navy);
+    text-align: center;
+    line-height: 1.2;
+  }
+  .badger-label {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 3px;
+    color: var(--amber);
+  }
+  .badger-features {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin-top: 2rem;
+  }
+  .badger-feature {
+    display: flex; align-items: flex-start; gap: 0.65rem;
+    font-size: 0.82rem; color: var(--white-dim);
+  }
+  .badger-feature::before {
+    content: '✓';
+    color: var(--amber);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .badger-visual {
+    background: var(--navy-light);
+    border: 0.5px solid var(--border-accent);
+    border-radius: 4px;
+    height: 380px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--navy-mid); }
+  .testimonials-inner { max-width: 1200px; margin: 0 auto; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .testi-card {
+    background: var(--navy-light);
+    border: 0.5px solid var(--border);
+    border-radius: 3px;
+    padding: 1.8rem 1.6rem;
+    position: relative;
+  }
+  .testi-card::before {
+    content: '"';
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--amber);
+    opacity: 0.25;
+    position: absolute;
+    top: 0.5rem; left: 1.2rem;
+  }
+  .testi-text {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--white-dim);
+    margin-bottom: 1.4rem;
+    padding-top: 1rem;
+    font-style: italic;
+  }
+  .testi-author {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .testi-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .testi-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .testi-role {
+    font-size: 0.72rem;
+    color: var(--white-dim);
+    letter-spacing: 0.3px;
+  }
+
+  /* ── LEADERSHIP ── */
+  .leadership { background: var(--navy); }
+  .leadership-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 5rem; align-items: center;
+  }
+  .leader-card {
+    background: var(--navy-light);
+    border: 0.5px solid var(--border-accent);
+    border-radius: 4px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .leader-avatar {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: var(--amber);
+    margin: 0 auto 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--navy);
+    letter-spacing: 2px;
+  }
+  .leader-name {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+  }
+  .leader-title {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 2px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .leader-bio {
+    font-size: 0.83rem;
+    color: var(--white-dim);
+    line-height: 1.7;
+  }
+  .team-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-bottom: 2rem;
+  }
+  .team-stat {
+    padding: 1.5rem;
+    background: var(--navy-mid);
+    border: 0.5px solid var(--border);
+    border-radius: 3px;
+  }
+  .team-stat-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--amber);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .team-stat-label {
+    font-size: 0.75rem;
+    color: var(--white-dim);
+    letter-spacing: 0.5px;
+  }
+  .certs {
+    display: flex; gap: 0.6rem; flex-wrap: wrap;
+  }
+  .cert-pill {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    padding: 0.35rem 0.75rem;
+    background: rgba(212,130,10,0.1);
+    border: 0.5px solid var(--border-accent);
+    border-radius: 2px;
+    color: var(--amber-pale);
+  }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--navy-mid);
+    border-top: 0.5px solid var(--border-accent);
+    text-align: center;
+    padding: 7rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(212,130,10,0.07), transparent 70%);
+  }
+  .final-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    letter-spacing: 2px;
+    line-height: 0.95;
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  .final-cta p {
+    font-size: 1rem;
+    color: var(--white-dim);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+    position: relative;
+  }
+  .final-cta-actions {
+    display: flex; justify-content: center; gap: 1rem;
+    position: relative;
+  }
+  .contact-info {
+    margin-top: 2.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    color: var(--white-dim);
+    position: relative;
+  }
+  .contact-info a { color: var(--amber); text-decoration: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    border-top: 0.5px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--white-dim);
+    letter-spacing: 0.5px;
+  }
+  footer a { color: var(--white-dim); text-decoration: none; }
+  footer a:hover { color: var(--amber); }
+
+  /* ── COMPLIANCE BAR ── */
+  .compliance-bar {
+    background: var(--navy-light);
+    padding: 0.85rem 3rem;
+    display: flex; align-items: center; justify-content: center; gap: 2.5rem;
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .comp-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--white-dim);
+    text-transform: uppercase;
+  }
+  .comp-dot {
+    width: 5px; height: 5px;
+    background: var(--amber);
+    border-radius: 50%;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.15s; opacity: 0; }
+  .delay-2 { animation-delay: 0.3s; opacity: 0; }
+  .delay-3 { animation-delay: 0.45s; opacity: 0; }
+  .delay-4 { animation-delay: 0.6s; opacity: 0; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 0 1.5rem 4rem; }
+    .constructability-inner,
+    .badger-inner,
+    .leadership-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .cap-grid { grid-template-columns: 1fr; }
+    .cap-card-wide { grid-column: span 1; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .project-grid { grid-template-columns: 1fr; }
+    .hero-stats { display: none; }
+    .team-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1151.47 549.76" style="height:40px;width:auto;display:block;opacity:1.0;">
+  <defs>
+    <style>
+      .cls-1 { fill: #f5f3ef; }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g id="_1SqGbk" data-name="1SqGbk">
+      <g>
+        <path class="cls-1" d="M617.99,230.25c-16.54-18.17-53.95-30.16-73.47-9.29l-70.38,75.23c-16.31,17.44-45.46,22.06-60.83-.42-40.67-59.49-43.04-134.41-7.17-197.96C438.73,40.09,502.57-.74,576.86.01c71.78.72,133.84,37.8,166.55,93.72,37.03,63.3,35.85,138.78-4.11,201.05-11.47,17.88-42.44,22.1-56.39,6.78l-64.92-71.31ZM557.49,58.65c58.7-6.37,103.23,17.98,131.54,58.24,27.51,39.12,30.62,97.21,3.71,139.7l15.94,19.92c33.11-46.6,35.71-104.82,9.74-155.65-34.72-67.97-112.25-99.86-183.47-81.04-70.94,18.74-122.64,82.72-119.83,162.26.62,17.67,14.15,53.81,23.68,69.51,3.31,5.45,21.22-12.21,17.53-18.32-19.77-32.77-23.73-88.93-.04-127.28,18.94-30.66,52.27-62.03,101.2-67.34ZM642.06,150.34c20.46,27.72-6.04,69.44,24.88,75.84,25.96-44.24-2.41-96.9-33.84-116.69-41.31-26.01-85.44-21.38-119.35,3.38-34.57,25.24-53.49,77.58-27.84,115.53,9.18-2.05,15.39-24.15,13.8-35.24-5.21-36.25,22.67-65.28,50.51-74.65,32.8-11.03,66.84-2.05,91.85,31.83ZM617.79,179.76c0-26.48-25.65-34.08-41.68-33.83-18.5.29-42.72,6.21-42.72,30.95l84.4,2.87Z"/>
+        <path class="cls-1" d="M1113.08,495.8l-130.29.94c-3.75.03-15.24,11.37-11.96,11.88l18.39,2.86,160.91.88,1.35,35.23-213.09.03-.11-138.4,212.53-.04-.59,34.44-166.52-.14c-4.3,0-16.15,11.91-12.83,12.28l17.25,1.9,126.49,3.61-1.54,34.54Z"/>
+        <path class="cls-1" d="M682.05,548.44c-50.89,9.81-48.42-38.34-67.86-38.46l-105.66-.62-6.47,37.04-31.76,1.18.52-138.25,187.16-.42c7.81-.02,23.69,14.15,23.56,21.11l-1.18,62.74-19.15,21.08,20.85,34.58ZM500.89,443.54v30.89h146.99v-30.89h-146.99Z"/>
+        <path class="cls-1" d="M423.02,547.68l-159.5.33c-11.29.02-28.83-15.61-28.85-26.48l-.16-87.68c1.05-7.05,15.15-24.87,23.41-24.87h166.39c9.26-.02,22.77,16.79,22.78,26.06l.1,84.93c.01,9.82-14.39,27.69-24.18,27.71ZM270.23,443.33l-.12,69.3,142.49.24.12-69.3-142.49-.24Z"/>
+        <path class="cls-1" d="M868.26,510.62c12.78-.25,38.48-17.81,45.93-10.46,8.36,8.25-2.01,44.98-13.94,46.33l-175.96,1.48c-6.3.05-18.6-15.79-18.58-21.73l.3-96.42c.02-6.21,13.73-21.03,21.33-20.99l172.98.97c12.93,1.87,23.39,42.49,11.78,47.52-8.24,3.57-32.73-11.94-42.08-12.08l-130.97-1.9-2.94,69.91,132.16-2.64Z"/>
+        <polyline class="cls-1" points="34.96 457.93 176.06 461.41 177.38 495.63 35.77 495.21 35.28 547.75 .05 547.28 0 409.19 211.69 409.15 210.91 443.49 34.99 443.67"/>
+        <path class="cls-1" d="M576.64,271.1l-35.81,36.75c-5.91,6.08-30.6,4.14-43.73,3.71-1.19-.14,7.29-14.36,11.42-18.83l40.74-44.16c16.76-18.17,48.56-8.13,61.64,7.73l45.19,54.82-44.71-.54-34.74-39.48Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#badger">The Badger</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#contact" class="nav-cta">Engineering Support</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <!-- Seismic wave SVG -->
+  <svg class="hero-seismic" viewBox="0 0 1400 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="0,60 80,60 100,20 120,100 140,35 160,85 180,60 220,60 240,10 260,110 280,30 300,90 320,60 400,60 420,48 440,72 460,60 520,60 540,15 560,105 580,25 600,95 620,60 680,60 700,42 720,78 740,60 800,60 820,5 840,115 860,28 880,95 900,60 960,60 980,50 1000,70 1020,60 1080,60 1100,20 1120,100 1140,38 1160,85 1180,60 1400,60" stroke="#d4820a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+
+  <div class="hero-eyebrow fade-up">Bay Area Seismic MEP Engineering — Est. 2016</div>
+
+  <h1 class="hero-headline fade-up delay-1">
+    SEISMIC<br>
+    <span class="accent">RESILIENCE.</span><br>
+    BUILT FOR<br>
+    THE FIELD.
+  </h1>
+
+  <p class="hero-sub fade-up delay-2">
+    Force Support Services delivers mission-critical seismic bracing, anchorage, and vibration isolation engineering across the San Francisco Bay Area — designed for constructability from day one.
+  </p>
+
+  <div class="hero-actions fade-up delay-3">
+    <a href="#contact" class="btn-primary">Request Engineering Support</a>
+    <a href="#capabilities" class="btn-ghost">View Capabilities</a>
+  </div>
+
+  <div class="hero-stats fade-up delay-4">
+    <div>
+      <div class="hero-stat-num">6×</div>
+      <div class="hero-stat-label">Sales Growth<br>Since 2016</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">9</div>
+      <div class="hero-stat-label">Elite PE &<br>Engineering Staff</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">CA</div>
+      <div class="hero-stat-label">PE Stamp<br>Provided</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPLIANCE BAR ── -->
+<div class="compliance-bar">
+  <div class="comp-item"><span class="comp-dot"></span> International Building Code (IBC) Compliant</div>
+  <div class="comp-item"><span class="comp-dot"></span> California Building Code (CBC) Compliant</div>
+  <div class="comp-item"><span class="comp-dot"></span> California PE Stamp Provided</div>
+  <div class="comp-item"><span class="comp-dot"></span> OSHPD / Healthcare Ready</div>
+  <div class="comp-item"><span class="comp-dot"></span> Government & Federal Projects</div>
+</div>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Seismic Bracing</span><span class="marquee-dot"></span>
+    <span>MEP Anchorage</span><span class="marquee-dot"></span>
+    <span>Vibration Isolation</span><span class="marquee-dot"></span>
+    <span>BIM / Revit 3D</span><span class="marquee-dot"></span>
+    <span>PE Stamped Drawings</span><span class="marquee-dot"></span>
+    <span>Field-Driven Design</span><span class="marquee-dot"></span>
+    <span>Rapid Response</span><span class="marquee-dot"></span>
+    <span>The Badger System</span><span class="marquee-dot"></span>
+    <span>Bay Area Delivery</span><span class="marquee-dot"></span>
+    <span>Data Centers</span><span class="marquee-dot"></span>
+    <span>Hospitals</span><span class="marquee-dot"></span>
+    <span>Government</span><span class="marquee-dot"></span>
+    <!-- duplicate for seamless loop -->
+    <span>Seismic Bracing</span><span class="marquee-dot"></span>
+    <span>MEP Anchorage</span><span class="marquee-dot"></span>
+    <span>Vibration Isolation</span><span class="marquee-dot"></span>
+    <span>BIM / Revit 3D</span><span class="marquee-dot"></span>
+    <span>PE Stamped Drawings</span><span class="marquee-dot"></span>
+    <span>Field-Driven Design</span><span class="marquee-dot"></span>
+    <span>Rapid Response</span><span class="marquee-dot"></span>
+    <span>The Badger System</span><span class="marquee-dot"></span>
+    <span>Bay Area Delivery</span><span class="marquee-dot"></span>
+    <span>Data Centers</span><span class="marquee-dot"></span>
+    <span>Hospitals</span><span class="marquee-dot"></span>
+    <span>Government</span><span class="marquee-dot"></span>
+  </div>
+</div>
+
+<!-- ── CONSTRUCTABILITY ADVANTAGE ── -->
+<section class="constructability" id="constructability">
+  <div class="constructability-inner">
+
+    <div class="construct-visual">
+      <!-- Schematic BIM-style SVG diagram -->
+      <svg class="construct-diagram" viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
+        <!-- Grid background -->
+        <defs>
+          <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+            <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(245,243,239,0.04)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="480" height="420" fill="url(#grid)"/>
+
+        <!-- Ceiling structure -->
+        <line x1="40" y1="60" x2="440" y2="60" stroke="rgba(245,243,239,0.15)" stroke-width="8"/>
+
+        <!-- Hanger rods -->
+        <line x1="120" y1="60" x2="120" y2="140" stroke="rgba(245,243,239,0.35)" stroke-width="2" stroke-dasharray="4,3"/>
+        <line x1="240" y1="60" x2="240" y2="130" stroke="rgba(245,243,239,0.35)" stroke-width="2" stroke-dasharray="4,3"/>
+        <line x1="360" y1="60" x2="360" y2="145" stroke="rgba(245,243,239,0.35)" stroke-width="2" stroke-dasharray="4,3"/>
+
+        <!-- Seismic brace lines -->
+        <line x1="120" y1="60" x2="80" y2="155" stroke="#d4820a" stroke-width="1.5" opacity="0.7"/>
+        <line x1="120" y1="60" x2="160" y2="155" stroke="#d4820a" stroke-width="1.5" opacity="0.7"/>
+        <line x1="360" y1="60" x2="320" y2="160" stroke="#d4820a" stroke-width="1.5" opacity="0.7"/>
+        <line x1="360" y1="60" x2="400" y2="160" stroke="#d4820a" stroke-width="1.5" opacity="0.7"/>
+
+        <!-- Pipe runs -->
+        <rect x="60" y="140" width="360" height="18" rx="2" fill="rgba(245,243,239,0.08)" stroke="rgba(245,243,239,0.2)" stroke-width="0.5"/>
+        <rect x="60" y="165" width="360" height="14" rx="2" fill="rgba(212,130,10,0.12)" stroke="rgba(212,130,10,0.4)" stroke-width="0.5"/>
+        <rect x="60" y="186" width="360" height="12" rx="2" fill="rgba(245,243,239,0.05)" stroke="rgba(245,243,239,0.15)" stroke-width="0.5"/>
+
+        <!-- Equipment box -->
+        <rect x="155" y="230" width="170" height="90" rx="3" fill="rgba(212,130,10,0.08)" stroke="#d4820a" stroke-width="1" opacity="0.8"/>
+        <text x="240" y="272" text-anchor="middle" fill="#d4820a" font-family="'DM Mono', monospace" font-size="8" letter-spacing="2" opacity="0.9">AHU / EQUIPMENT</text>
+        <text x="240" y="287" text-anchor="middle" fill="rgba(245,243,239,0.4)" font-family="'DM Mono', monospace" font-size="7" letter-spacing="1">ANCHORED + ISOLATED</text>
+
+        <!-- Anchor bolts -->
+        <circle cx="170" cy="320" r="5" fill="#d4820a" opacity="0.7"/>
+        <circle cx="310" cy="320" r="5" fill="#d4820a" opacity="0.7"/>
+        <line x1="170" y1="320" x2="170" y2="340" stroke="#d4820a" stroke-width="1.5" opacity="0.5"/>
+        <line x1="310" y1="320" x2="310" y2="340" stroke="#d4820a" stroke-width="1.5" opacity="0.5"/>
+
+        <!-- Floor slab -->
+        <rect x="40" y="340" width="400" height="20" rx="1" fill="rgba(245,243,239,0.06)" stroke="rgba(245,243,239,0.1)" stroke-width="0.5"/>
+
+        <!-- Labels -->
+        <text x="70" y="152" fill="rgba(245,243,239,0.35)" font-family="'DM Mono', monospace" font-size="7" letter-spacing="1.5">SEISMIC BRACE</text>
+        <text x="60" y="162" fill="rgba(245,243,239,0.5)" font-family="'DM Mono', monospace" font-size="7" letter-spacing="1.5">CONDUIT</text>
+        <text x="60" y="179" fill="rgba(212,130,10,0.8)" font-family="'DM Mono', monospace" font-size="7" letter-spacing="1.5">MECHANICAL PIPE</text>
+
+        <!-- Dimension indicators -->
+        <line x1="450" y1="60" x2="450" y2="340" stroke="rgba(212,130,10,0.25)" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <text x="458" y="200" fill="rgba(212,130,10,0.5)" font-family="'DM Mono', monospace" font-size="7" letter-spacing="1">TYP.</text>
+
+        <!-- Corner badge -->
+        <rect x="20" y="370" width="100" height="28" rx="2" fill="rgba(212,130,10,0.08)" stroke="rgba(212,130,10,0.2)" stroke-width="0.5"/>
+        <text x="70" y="382" text-anchor="middle" fill="#d4820a" font-family="'DM Mono', monospace" font-size="6" letter-spacing="1.5">BIM / REVIT</text>
+        <text x="70" y="393" text-anchor="middle" fill="rgba(212,130,10,0.6)" font-family="'DM Mono', monospace" font-size="5.5" letter-spacing="1">3D MODEL — FSS</text>
+      </svg>
+    </div>
+
+    <div>
+      <div class="section-eyebrow">The FSS Advantage</div>
+      <h2 class="section-title">FIELD-DRIVEN<br><span class="accent">DESIGN.</span></h2>
+      <p class="section-lead">
+        Most engineering firms design in isolation. FSS designs with your foremen. We capture real-world installation feedback and embed it directly into every drawing — eliminating costly RFIs, change orders, and field rework before they ever happen.
+      </p>
+
+      <div class="field-pillars">
+        <div class="field-pillar">
+          <span class="pillar-icon">01</span>
+          <div class="pillar-text">
+            <h4>Constructability-First Engineering</h4>
+            <p>Every FSS design is reviewed against real installation sequences. If a foreman can't install it efficiently, we redesign it — no exceptions.</p>
+          </div>
+        </div>
+        <div class="field-pillar">
+          <span class="pillar-icon">02</span>
+          <div class="pillar-text">
+            <h4>Rapid Response to Field Changes</h4>
+            <p>Construction changes daily. FSS engineering turns around revised drawings fast — keeping your schedule on track and your team out of limbo.</p>
+          </div>
+        </div>
+        <div class="field-pillar">
+          <span class="pillar-icon">03</span>
+          <div class="pillar-text">
+            <h4>Clash-Free 3D BIM Coordination</h4>
+            <p>Revit and AutoCAD 3D modeling catches conflicts before they reach the field — saving time, materials, and disputes on your most complex MEP systems.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CORE CAPABILITIES ── -->
+<section class="capabilities" id="capabilities">
+  <div class="capabilities-inner">
+    <div class="section-eyebrow">Core Engineering Capabilities</div>
+    <h2 class="section-title">WHAT WE<br><span class="accent">DELIVER.</span></h2>
+    <p class="section-lead">
+      From PE-stamped calculations to same-day Bay Area hardware delivery, FSS operates as a fully integrated engineering and supply partner on your most demanding projects.
+    </p>
+
+    <div class="cap-grid">
+
+      <div class="cap-card">
+        <div class="cap-num">CAP — 01</div>
+        <div class="cap-icon-box">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Seismic Calculations & PE Stamping</h3>
+        <p>Full IBC and CBC-compliant seismic bracing calculations, signed and stamped by a licensed California Professional Engineer. AHJ-ready submittals on every project.</p>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">CAP — 02</div>
+        <div class="cap-icon-box">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3>Equipment Anchorage Design</h3>
+        <p>Precise anchorage engineering for all MEP equipment — AHUs, chillers, pumps, electrical switchgear, and more. Sized for seismic zone requirements and slab conditions.</p>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">CAP — 03</div>
+        <div class="cap-icon-box">
+          <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Vibration Isolation & Noise Dampening</h3>
+        <p>Engineering solutions for rotating equipment vibration — spring isolators, inertia bases, and flexible connectors — protecting structural integrity and occupant comfort.</p>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">CAP — 04</div>
+        <div class="cap-icon-box">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+        </div>
+        <h3>BIM / Revit 3D Modeling</h3>
+        <p>Full 3D coordination in Revit and AutoCAD — clash detection, coordinated MEP routing, and construction-ready documentation that bridges engineering and the field seamlessly.</p>
+      </div>
+
+      <div class="cap-card cap-card-wide">
+        <div class="cap-wide-badge">DAILY<br>BAY<br>AREA</div>
+        <div>
+          <div class="cap-num">CAP — 05</div>
+          <h3>Hardware Distribution & Daily Job Site Delivery</h3>
+          <p>FSS stocks and supplies seismic bracing hardware, strut systems, and anchorage products — with daily delivery to Bay Area job sites. One call, one partner: engineering and materials, coordinated from a single source. No waiting on supply chains. No frantic last-minute sourcing. Just product where you need it, when you need it.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PAST PERFORMANCE ── -->
+<section class="projects" id="projects">
+  <div class="projects-inner">
+    <div class="projects-header">
+      <div>
+        <div class="section-eyebrow">Past Performance</div>
+        <h2 class="section-title">PROVEN ON<br><span class="accent">LANDMARK</span><br>PROJECTS.</h2>
+      </div>
+      <div>
+        <p style="font-size:0.82rem; color: var(--white-dim); margin-bottom: 0.75rem; letter-spacing: 0.5px;">Sectors Served</p>
+        <div class="sector-tags">
+          <span class="sector-tag">Technology</span>
+          <span class="sector-tag">Medical / OSHPD</span>
+          <span class="sector-tag">Data Centers</span>
+          <span class="sector-tag">Government</span>
+          <span class="sector-tag">Industrial</span>
+          <span class="sector-tag">Higher Ed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+
+      <!-- APPLE — large feature with real photo -->
+      <div class="project-card" style="padding:0;overflow:hidden;display:flex;flex-direction:column;">
+        <div style="position:relative;height:270px;overflow:hidden;flex-shrink:0;">
+          <img src="https://fairview-na.com/wp-content/uploads/2017/02/CW-5227-1024x683.jpg"
+               alt="Apple Central &amp; Wolfe Campus, Sunnyvale CA"
+               style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.55) saturate(0.7);">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,14,26,0.95) 0%, rgba(10,14,26,0.2) 60%, transparent 100%);"></div>
+          <div style="position:absolute;bottom:1.4rem;left:1.6rem;right:1.6rem;">
+            <div class="project-tag" style="margin-bottom:0.35rem;">Landmark Tech Campus — Sunnyvale, CA</div>
+            <h3 style="font-family:var(--font-display);font-size:2.3rem;letter-spacing:1px;line-height:1;color:var(--white);">APPLE CENTRAL<br>&amp; WOLFE</h3>
+          </div>
+        </div>
+        <div style="padding:1.4rem 1.6rem 1.6rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <p style="font-size:0.83rem;color:var(--white-dim);line-height:1.72;margin-bottom:1.1rem;">Comprehensive seismic MEP engineering across multiple buildings on Apple's flagship Bay Area campus. FSS delivered full anchorage design, seismic bracing calculations, and coordinated 3D BIM models — enabling a zero-RFI installation on one of the most demanding private construction programs in California history.</p>
+          <div class="project-scope">
+            <span class="scope-chip">Seismic Bracing</span>
+            <span class="scope-chip">Equipment Anchorage</span>
+            <span class="scope-chip">Vibration Isolation</span>
+            <span class="scope-chip">BIM Coordination</span>
+            <span class="scope-chip">PE Stamped</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="project-stack">
+
+        <!-- UBER with real photo -->
+        <div class="project-mini" style="padding:0;overflow:hidden;">
+          <div style="position:relative;height:165px;overflow:hidden;">
+            <img src="https://fairshake.com/wp-content/uploads/2021/07/Uber-HQ-Mission-Bay-Entrance-scaled.jpg"
+                 alt="Uber Mission Bay Headquarters, San Francisco"
+                 style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.5) saturate(0.65);">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,14,26,0.95) 0%, rgba(10,14,26,0.15) 60%, transparent 100%);"></div>
+            <div style="position:absolute;bottom:0.9rem;left:1.2rem;right:1.2rem;">
+              <div class="project-tag" style="margin-bottom:0.2rem;">Corporate HQ — San Francisco, CA</div>
+              <h3 style="font-family:var(--font-display);font-size:1.65rem;letter-spacing:1px;line-height:1;color:var(--white);">UBER SF HQ</h3>
+            </div>
+          </div>
+          <div style="padding:1rem 1.2rem 1.2rem;">
+            <p style="font-size:0.8rem;color:var(--white-dim);line-height:1.65;margin-bottom:0.8rem;">Full-building seismic MEP engineering for Uber's SF headquarters — mechanical, plumbing, and electrical anchorage across two towers connected by earthquake-proof sky bridges.</p>
+            <div class="project-scope">
+              <span class="scope-chip">High-Rise MEP</span>
+              <span class="scope-chip">CBC Compliant</span>
+              <span class="scope-chip">PE Stamped</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DATA CENTERS + HOSPITALS -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;flex:1;">
+
+          <div class="project-mini" style="padding:0;overflow:hidden;display:flex;flex-direction:column;">
+            <div style="height:90px;background:linear-gradient(135deg,#0d1928 0%,#1a2a3e 100%);position:relative;overflow:hidden;flex-shrink:0;">
+              <!-- Grid pattern for data center feel -->
+              <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.15;" viewBox="0 0 200 90" preserveAspectRatio="none">
+                <defs><pattern id="g1" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0L0 0 0 20" fill="none" stroke="#d4820a" stroke-width="0.5"/></pattern></defs>
+                <rect width="200" height="90" fill="url(#g1)"/>
+                <rect x="20" y="15" width="35" height="20" rx="1" fill="rgba(212,130,10,0.15)" stroke="rgba(212,130,10,0.4)" stroke-width="0.5"/>
+                <rect x="60" y="15" width="35" height="20" rx="1" fill="rgba(212,130,10,0.1)" stroke="rgba(212,130,10,0.3)" stroke-width="0.5"/>
+                <rect x="100" y="15" width="35" height="20" rx="1" fill="rgba(212,130,10,0.15)" stroke="rgba(212,130,10,0.4)" stroke-width="0.5"/>
+                <rect x="20" y="45" width="35" height="20" rx="1" fill="rgba(212,130,10,0.08)" stroke="rgba(212,130,10,0.25)" stroke-width="0.5"/>
+                <rect x="60" y="45" width="35" height="20" rx="1" fill="rgba(212,130,10,0.12)" stroke="rgba(212,130,10,0.35)" stroke-width="0.5"/>
+                <rect x="100" y="45" width="35" height="20" rx="1" fill="rgba(212,130,10,0.08)" stroke="rgba(212,130,10,0.25)" stroke-width="0.5"/>
+              </svg>
+              <div style="position:absolute;bottom:0.6rem;left:0.85rem;">
+                <div class="project-tag" style="font-size:0.55rem;margin-bottom:0.1rem;">Mission-Critical</div>
+                <h3 style="font-family:var(--font-display);font-size:1.1rem;letter-spacing:1px;line-height:1.1;color:var(--white);">DATA<br>CENTERS</h3>
+              </div>
+            </div>
+            <div style="padding:0.75rem 0.9rem;flex:1;">
+              <p style="font-size:0.74rem;color:var(--white-dim);line-height:1.6;margin-bottom:0.6rem;">Tier III/IV seismic engineering where downtime isn't an option.</p>
+              <div class="project-scope" style="gap:0.3rem;">
+                <span class="scope-chip" style="font-size:0.6rem;">Tier IV</span>
+                <span class="scope-chip" style="font-size:0.6rem;">IBC/CBC</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-mini" style="padding:0;overflow:hidden;display:flex;flex-direction:column;">
+            <div style="height:90px;background:linear-gradient(135deg,#111c14 0%,#1a2e1d 100%);position:relative;overflow:hidden;flex-shrink:0;">
+              <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.12;" viewBox="0 0 200 90" preserveAspectRatio="none">
+                <defs><pattern id="g2" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0L0 0 0 20" fill="none" stroke="#d4820a" stroke-width="0.5"/></pattern></defs>
+                <rect width="200" height="90" fill="url(#g2)"/>
+                <rect x="30" y="20" width="140" height="50" rx="2" fill="none" stroke="rgba(212,130,10,0.3)" stroke-width="0.5"/>
+                <line x1="30" y1="35" x2="170" y2="35" stroke="rgba(212,130,10,0.2)" stroke-width="0.5"/>
+                <circle cx="100" cy="55" r="8" fill="none" stroke="rgba(212,130,10,0.25)" stroke-width="0.5"/>
+                <line x1="30" y1="20" x2="30" y2="70" stroke="rgba(212,130,10,0.3)" stroke-width="1"/>
+              </svg>
+              <div style="position:absolute;bottom:0.6rem;left:0.85rem;">
+                <div class="project-tag" style="font-size:0.55rem;margin-bottom:0.1rem;">OSHPD / Healthcare</div>
+                <h3 style="font-family:var(--font-display);font-size:1.1rem;letter-spacing:1px;line-height:1.1;color:var(--white);">HOSPITALS<br>&amp; GOV</h3>
+              </div>
+            </div>
+            <div style="padding:0.75rem 0.9rem;flex:1;">
+              <p style="font-size:0.74rem;color:var(--white-dim);line-height:1.6;margin-bottom:0.6rem;">OSHPD-regulated facilities where life-safety is absolute.</p>
+              <div class="project-scope" style="gap:0.3rem;">
+                <span class="scope-chip" style="font-size:0.6rem;">OSHPD</span>
+                <span class="scope-chip" style="font-size:0.6rem;">Gov</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── THE BADGER ── -->
+<section class="badger-section" id="badger">
+  <div class="badger-inner">
+    <div>
+      <div class="badger-badge">
+        <div class="badger-hex">THE<br>BADGER</div>
+        <div class="badger-label">PROPRIETARY<br>SEISMIC SYSTEM</div>
+      </div>
+      <div class="section-eyebrow" style="padding-left:0; margin-left:0;">FSS Innovation</div>
+      <h2 class="section-title">ENGINEERED<br>FOR THE<br><span class="accent">INSTALLER.</span></h2>
+      <p class="section-lead" style="margin-bottom: 1.5rem;">
+        The Badger is FSS's proprietary seismic bracing system — developed in direct response to field crews asking for something simpler, faster, and more reliable than legacy hardware. It's become the go-to system for experienced MEP foremen across the Bay Area.
+      </p>
+      <div class="badger-features">
+        <div class="badger-feature">Faster installation than conventional systems</div>
+        <div class="badger-feature">Fewer components, less confusion on site</div>
+        <div class="badger-feature">Praised by field foremen for simplicity</div>
+        <div class="badger-feature">IBC and CBC compliant by design</div>
+        <div class="badger-feature">Compatible with standard MEP hardware</div>
+        <div class="badger-feature">Available for daily Bay Area delivery</div>
+      </div>
+    </div>
+
+    <div class="badger-visual">
+      <!-- Badger system schematic SVG -->
+      <svg viewBox="0 0 440 380" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="bgrid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(245,243,239,0.03)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="440" height="380" fill="url(#bgrid)"/>
+
+        <!-- Main structural beam -->
+        <rect x="30" y="50" width="380" height="12" rx="2" fill="rgba(245,243,239,0.15)" stroke="rgba(245,243,239,0.25)" stroke-width="0.5"/>
+
+        <!-- Badger bracket centerpiece -->
+        <rect x="175" y="62" width="90" height="60" rx="3" fill="rgba(212,130,10,0.15)" stroke="#d4820a" stroke-width="1.5"/>
+        <text x="220" y="89" text-anchor="middle" fill="#d4820a" font-family="'Bebas Neue', sans-serif" font-size="16" letter-spacing="3">BADGER</text>
+        <text x="220" y="105" text-anchor="middle" fill="rgba(212,130,10,0.6)" font-family="'DM Mono', monospace" font-size="6.5" letter-spacing="2">SEISMIC BRACKET</text>
+
+        <!-- 4-way brace arms -->
+        <line x1="220" y1="122" x2="160" y2="185" stroke="#d4820a" stroke-width="2" opacity="0.8"/>
+        <line x1="220" y1="122" x2="280" y2="185" stroke="#d4820a" stroke-width="2" opacity="0.8"/>
+        <line x1="175" y1="92" x2="80" y2="130" stroke="#d4820a" stroke-width="2" opacity="0.5" stroke-dasharray="5,3"/>
+        <line x1="265" y1="92" x2="360" y2="130" stroke="#d4820a" stroke-width="2" opacity="0.5" stroke-dasharray="5,3"/>
+
+        <!-- Pipe being braced -->
+        <rect x="80" y="185" width="280" height="22" rx="3" fill="rgba(245,243,239,0.08)" stroke="rgba(245,243,239,0.3)" stroke-width="1"/>
+        <text x="220" y="200" text-anchor="middle" fill="rgba(245,243,239,0.4)" font-family="'DM Mono', monospace" font-size="7" letter-spacing="2">MECHANICAL PIPE</text>
+
+        <!-- Attachment nodes -->
+        <circle cx="160" cy="185" r="6" fill="rgba(212,130,10,0.2)" stroke="#d4820a" stroke-width="1"/>
+        <circle cx="280" cy="185" r="6" fill="rgba(212,130,10,0.2)" stroke="#d4820a" stroke-width="1"/>
+        <circle cx="80" cy="130" r="5" fill="rgba(212,130,10,0.12)" stroke="rgba(212,130,10,0.4)" stroke-width="1"/>
+        <circle cx="360" cy="130" r="5" fill="rgba(212,130,10,0.12)" stroke="rgba(212,130,10,0.4)" stroke-width="1"/>
+
+        <!-- Hanger rod -->
+        <line x1="220" y1="62" x2="220" y2="50" stroke="rgba(245,243,239,0.4)" stroke-width="2"/>
+
+        <!-- Labels -->
+        <text x="130" y="175" fill="rgba(245,243,239,0.3)" font-family="'DM Mono', monospace" font-size="6.5" letter-spacing="1.5">4-WAY SEISMIC</text>
+        <text x="130" y="183" fill="rgba(245,243,239,0.3)" font-family="'DM Mono', monospace" font-size="6.5" letter-spacing="1.5">ATTACHMENT</text>
+
+        <!-- Specs block -->
+        <rect x="30" y="265" width="165" height="85" rx="2" fill="rgba(245,243,239,0.03)" stroke="rgba(245,243,239,0.07)" stroke-width="0.5"/>
+        <text x="45" y="282" fill="rgba(212,130,10,0.7)" font-family="'DM Mono', monospace" font-size="6" letter-spacing="2">SPECIFICATIONS</text>
+        <text x="45" y="298" fill="rgba(245,243,239,0.4)" font-family="'DM Mono', monospace" font-size="6.5">IBC / CBC COMPLIANT</text>
+        <text x="45" y="312" fill="rgba(245,243,239,0.4)" font-family="'DM Mono', monospace" font-size="6.5">ALL PIPE DIAMETERS</text>
+        <text x="45" y="326" fill="rgba(245,243,239,0.4)" font-family="'DM Mono', monospace" font-size="6.5">4-WAY BRACING</text>
+        <text x="45" y="340" fill="rgba(245,243,239,0.4)" font-family="'DM Mono', monospace" font-size="6.5">TOOL-FREE ADJUST</text>
+
+        <rect x="245" y="265" width="165" height="85" rx="2" fill="rgba(212,130,10,0.05)" stroke="rgba(212,130,10,0.15)" stroke-width="0.5"/>
+        <text x="260" y="282" fill="rgba(212,130,10,0.7)" font-family="'DM Mono', monospace" font-size="6" letter-spacing="2">FIELD VERDICT</text>
+        <text x="260" y="298" fill="rgba(245,243,239,0.5)" font-family="'DM Mono', monospace" font-size="6.5">"EASIEST BRACE</text>
+        <text x="260" y="312" fill="rgba(245,243,239,0.5)" font-family="'DM Mono', monospace" font-size="6.5">WE'VE EVER RUN."</text>
+        <text x="260" y="332" fill="rgba(212,130,10,0.5)" font-family="'DM Mono', monospace" font-size="6">— FIELD FOREMAN,</text>
+        <text x="260" y="344" fill="rgba(212,130,10,0.5)" font-family="'DM Mono', monospace" font-size="6">BAY AREA CONTRACTOR</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-inner">
+    <div class="section-eyebrow">Field &amp; Project Manager Feedback</div>
+    <h2 class="section-title">TRUSTED BY<br><span class="accent">THE BEST</span><br>IN THE BAY.</h2>
+    <p class="section-lead">What the Bay Area's leading MEP contractors say about working with FSS on high-stakes, schedule-driven projects.</p>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-text">
+          "FSS turned around a complete seismic redesign in under 48 hours when our routing changed mid-project. Their PE stamp was on the revised drawings before the concrete crew was done — that kind of responsiveness is why we call them first."
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">MR</div>
+          <div>
+            <div class="testi-name">Michael R.</div>
+            <div class="testi-role">Senior Project Manager — Southland Industries</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-text">
+          "The Badger system cut our seismic installation time on the last data center project by nearly 30%. Our foremen actually requested it by name on the next bid. FSS understands what matters in the field, not just on paper."
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">JK</div>
+          <div>
+            <div class="testi-name">Jason K.</div>
+            <div class="testi-role">Electrical Superintendent — Rosendin Electric</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-text">
+          "We've worked with a lot of seismic engineers. FSS is the only one that sends someone who's actually been in the field. Their drawings don't have the 'designed behind a desk' problems — everything they produce can actually be built."
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">AT</div>
+          <div>
+            <div class="testi-name">Alex T.</div>
+            <div class="testi-role">Project Executive — United Mechanical</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEADERSHIP ── -->
+<section class="leadership" id="leadership">
+  <div class="leadership-inner">
+    <div class="leader-card">
+      <div class="leader-avatar" style="background:none;overflow:hidden;padding:0;">
+        <img src="https://i0.wp.com/forcesupportservices.com/wp-content/uploads/2021/04/Tim-254x270-1.jpg?fit=254%2C270&ssl=1" alt="Tim Lindfelt" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+      </div>
+      <div class="leader-name">TIM LINDFELT</div>
+      <div class="leader-title">Principal Engineer & Founder</div>
+      <p class="leader-bio">
+        Founded FSS in 2016 with a clear mandate: build a seismic MEP engineering firm that understands the field as well as the theory. Under Tim's leadership, FSS has grown 6× from inception — through a pandemic — by delivering engineering that field crews can actually build. Licensed PE in California.
+      </p>
+    </div>
+
+    <div>
+      <div class="section-eyebrow">The FSS Engineering Team</div>
+      <h2 class="section-title">ELITE TEAM.<br><span class="accent">PROVEN</span><br>RESULTS.</h2>
+
+      <div class="team-stats">
+        <div class="team-stat">
+          <div class="team-stat-num">9</div>
+          <div class="team-stat-label">Engineering & PE Staff — Hayward, CA</div>
+        </div>
+        <div class="team-stat">
+          <div class="team-stat-num">6×</div>
+          <div class="team-stat-label">Revenue Growth Since 2016 Founding</div>
+        </div>
+        <div class="team-stat">
+          <div class="team-stat-num">Bay<br><span style="font-size: 1.2rem;">Area</span></div>
+          <div class="team-stat-label">Daily Delivery & On-Site Support</div>
+        </div>
+        <div class="team-stat">
+          <div class="team-stat-num">5+</div>
+          <div class="team-stat-label">Industry Sectors Served Concurrently</div>
+        </div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--white-dim); line-height: 1.75; margin-bottom: 1.5rem;">
+        Every FSS engineer combines code expertise with real-world construction knowledge. We don't just stamp drawings — we partner with your team from design through inspection, ensuring the work is right the first time.
+      </p>
+
+      <div class="certs">
+        <span class="cert-pill">California PE</span>
+        <span class="cert-pill">IBC 2021</span>
+        <span class="cert-pill">CBC 2022</span>
+        <span class="cert-pill">ASCE 7</span>
+        <span class="cert-pill">OSHPD</span>
+        <span class="cert-pill">Revit Certified</span>
+        <span class="cert-pill">AutoCAD</span>
+        <span class="cert-pill">BIM Coordination</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta" id="contact">
+  <div class="section-eyebrow" style="justify-content: center; padding-left: 0;">Rapid Response Engineering Support</div>
+  <h2>YOUR SCHEDULE<br>IS <span class="accent">MISSION</span><br>CRITICAL.</h2>
+  <p>
+    Active construction project? Field change forcing a redesign? Need PE-stamped drawings this week? FSS is engineered for exactly this situation. Tell us what you're facing and we'll respond within the hour.
+  </p>
+  <div class="final-cta-actions">
+    <a href="mailto:engineering@forcesupportservices.com" class="btn-primary">Request Engineering Support</a>
+    <a href="tel:+15101234567" class="btn-ghost">Call the Team</a>
+  </div>
+  <div class="contact-info">
+    Hayward, CA &nbsp;·&nbsp; Serving the San Francisco Bay Area &nbsp;·&nbsp;
+    <a href="mailto:engineering@forcesupportservices.com">engineering@forcesupportservices.com</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1151.47 549.76" style="height:20px;width:auto;display:block;opacity:0.4;">
+  <defs>
+    <style>
+      .cls-1 { fill: #f5f3ef; }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g id="_1SqGbk" data-name="1SqGbk">
+      <g>
+        <path class="cls-1" d="M617.99,230.25c-16.54-18.17-53.95-30.16-73.47-9.29l-70.38,75.23c-16.31,17.44-45.46,22.06-60.83-.42-40.67-59.49-43.04-134.41-7.17-197.96C438.73,40.09,502.57-.74,576.86.01c71.78.72,133.84,37.8,166.55,93.72,37.03,63.3,35.85,138.78-4.11,201.05-11.47,17.88-42.44,22.1-56.39,6.78l-64.92-71.31ZM557.49,58.65c58.7-6.37,103.23,17.98,131.54,58.24,27.51,39.12,30.62,97.21,3.71,139.7l15.94,19.92c33.11-46.6,35.71-104.82,9.74-155.65-34.72-67.97-112.25-99.86-183.47-81.04-70.94,18.74-122.64,82.72-119.83,162.26.62,17.67,14.15,53.81,23.68,69.51,3.31,5.45,21.22-12.21,17.53-18.32-19.77-32.77-23.73-88.93-.04-127.28,18.94-30.66,52.27-62.03,101.2-67.34ZM642.06,150.34c20.46,27.72-6.04,69.44,24.88,75.84,25.96-44.24-2.41-96.9-33.84-116.69-41.31-26.01-85.44-21.38-119.35,3.38-34.57,25.24-53.49,77.58-27.84,115.53,9.18-2.05,15.39-24.15,13.8-35.24-5.21-36.25,22.67-65.28,50.51-74.65,32.8-11.03,66.84-2.05,91.85,31.83ZM617.79,179.76c0-26.48-25.65-34.08-41.68-33.83-18.5.29-42.72,6.21-42.72,30.95l84.4,2.87Z"/>
+        <path class="cls-1" d="M1113.08,495.8l-130.29.94c-3.75.03-15.24,11.37-11.96,11.88l18.39,2.86,160.91.88,1.35,35.23-213.09.03-.11-138.4,212.53-.04-.59,34.44-166.52-.14c-4.3,0-16.15,11.91-12.83,12.28l17.25,1.9,126.49,3.61-1.54,34.54Z"/>
+        <path class="cls-1" d="M682.05,548.44c-50.89,9.81-48.42-38.34-67.86-38.46l-105.66-.62-6.47,37.04-31.76,1.18.52-138.25,187.16-.42c7.81-.02,23.69,14.15,23.56,21.11l-1.18,62.74-19.15,21.08,20.85,34.58ZM500.89,443.54v30.89h146.99v-30.89h-146.99Z"/>
+        <path class="cls-1" d="M423.02,547.68l-159.5.33c-11.29.02-28.83-15.61-28.85-26.48l-.16-87.68c1.05-7.05,15.15-24.87,23.41-24.87h166.39c9.26-.02,22.77,16.79,22.78,26.06l.1,84.93c.01,9.82-14.39,27.69-24.18,27.71ZM270.23,443.33l-.12,69.3,142.49.24.12-69.3-142.49-.24Z"/>
+        <path class="cls-1" d="M868.26,510.62c12.78-.25,38.48-17.81,45.93-10.46,8.36,8.25-2.01,44.98-13.94,46.33l-175.96,1.48c-6.3.05-18.6-15.79-18.58-21.73l.3-96.42c.02-6.21,13.73-21.03,21.33-20.99l172.98.97c12.93,1.87,23.39,42.49,11.78,47.52-8.24,3.57-32.73-11.94-42.08-12.08l-130.97-1.9-2.94,69.91,132.16-2.64Z"/>
+        <polyline class="cls-1" points="34.96 457.93 176.06 461.41 177.38 495.63 35.77 495.21 35.28 547.75 .05 547.28 0 409.19 211.69 409.15 210.91 443.49 34.99 443.67"/>
+        <path class="cls-1" d="M576.64,271.1l-35.81,36.75c-5.91,6.08-30.6,4.14-43.73,3.71-1.19-.14,7.29-14.36,11.42-18.83l40.74-44.16c16.76-18.17,48.56-8.13,61.64,7.73l45.19,54.82-44.71-.54-34.74-39.48Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
+    <span style="color: rgba(245,243,239,0.25);">·</span>
+    <span>Hayward, CA</span>
+  </div>
+  <div style="display: flex; gap: 1.5rem;">
+    <a href="#">Capabilities</a>
+    <a href="#">The Badger</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </div>
+  <div style="text-align: right;">
+    © 2024 Force Support Services. All rights reserved.<br>
+    <span style="color: rgba(245,243,239,0.3);">Est. 2016 — Hayward, CA</span>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for scroll-triggered fade-up
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.cap-card, .field-pillar, .project-card, .project-mini, .testi-card, .team-stat, .cert-pill').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    observer.observe(el);
+  });
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--amber-bright)'
+        : '';
+    });
+  });
+</script>
+
+</body>
+</html>
